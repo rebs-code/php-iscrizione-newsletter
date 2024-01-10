@@ -9,14 +9,20 @@
 </head>
 
 <body>
+    <?php
+    $email = $_POST['email-input'];
+    var_dump($email);
+
+
+    ?>
     <header class="container p-3">
         <h1 class="text-center">The New Newsletter with Letters</h1>
     </header>
     <section class="container">
-        <form>
+        <form action="index.php" method="post">
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <input type="email" class="form-control" id="exampleInputEmail1" name="email-input">
                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
