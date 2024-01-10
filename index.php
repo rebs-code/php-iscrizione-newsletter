@@ -38,6 +38,10 @@
                 <div class='alert <?php echo $alert_danger ?>' role='alert'>
                     Insert a valid email address
                 </div>
+            <?php else : ?>
+                <div class='alert <?php echo $alert_success ?>' role='alert'>
+                    Success! You are subscribed!
+                </div>
             <?php endif ?>
             <!-- button to submit form -->
             <button type="submit" class="btn btn-primary">Submit</button>
