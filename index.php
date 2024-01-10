@@ -15,6 +15,8 @@
 
 
     $email = isset($_POST['email-input']) ? $_POST['email-input'] : '';
+    $alert_success = "alert-success";
+    $alert_danger = "alert-danger";
     var_dump($email);
     var_dump(strpos($email, '@'));
     var_dump(strpos($email, '.'));
@@ -31,12 +33,13 @@
                 <input type="email" class="form-control" id="exampleInputEmail1" name="email-input">
                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
             </div>
+            <!-- call the isEmailValid  function -->
             <?php if (isset($_POST['email-input']) && !isEmailValid($email)) : ?>
-                <div class='alert alert-danger' role='alert'>
+                <div class='alert <?php echo $alert_danger ?>' role='alert'>
                     Insert a valid email address
                 </div>
             <?php endif ?>
-
+            <!-- button to submit form -->
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
 
