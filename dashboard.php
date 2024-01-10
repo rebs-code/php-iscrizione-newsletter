@@ -8,8 +8,14 @@
 </head>
 
 <body>
+    <?php
+    require_once __DIR__ . '/session.php';
+    ?>
     <div>
-        Welcome, you are logged in
+        <h2>
+            Welcome, you are logged in.
+            <h4>Your email is: <?php echo $_SESSION['validEmail']; ?> </h4>
+
     </div>
 </body>
 

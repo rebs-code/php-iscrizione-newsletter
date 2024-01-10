@@ -25,6 +25,7 @@
 
     //redirects to a dashboard page if the email inserted is correct
     if (isEmailValid($email)) {
+        $_SESSION['validEmail'] = $email;
         header('Location: dashboard.php');
         die;
     }
