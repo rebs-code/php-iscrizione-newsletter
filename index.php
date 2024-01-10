@@ -10,7 +10,7 @@
 
 <body>
     <?php
-    $email = $_POST['email-input'];
+    $email = isset($_POST['email-input']) ? $_POST['email-input'] : '';
     var_dump($email);
     var_dump(strpos($email, '@'));
     var_dump(strpos($email, '.'));
@@ -28,9 +28,13 @@
                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
             </div>
             <!-- alert danger invalid email -->
-            <?php if ((strpos($email, '@') !== false || strpos($email, '.') !== false) || $email === '') : ?>
+            <?php if ($email && (strpos($email, '@') === false || strpos($email, '.') === false)) : ?>
                 <div class="alert alert-danger" role="alert">
                     Insert a valid email address
+                </div>
+            <?php elseif ($email && (strpos($email, '@') !== false && strpos($email, '.') !== false)) : ?>
+                <div class="alert alert-success" role="alert">
+                    Email is valid
                 </div>
             <?php endif ?>
             <button type="submit" class="btn btn-primary">Submit</button>
