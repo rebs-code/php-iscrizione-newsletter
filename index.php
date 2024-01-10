@@ -12,6 +12,7 @@
     <?php
     // include functions.php
     include 'functions.php';
+    require_once __DIR__ . '/session.php';
 
 
     $email = isset($_POST['email-input']) ? $_POST['email-input'] : '';
@@ -20,6 +21,13 @@
     var_dump($email);
     var_dump(strpos($email, '@'));
     var_dump(strpos($email, '.'));
+
+
+    //redirects to a dashboard page if the email inserted is correct
+    if (isEmailValid($email)) {
+        header('Location: dashboard.php');
+        die;
+    }
 
 
     ?>
