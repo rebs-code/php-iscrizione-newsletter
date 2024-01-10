@@ -12,6 +12,8 @@
     <?php
     $email = $_POST['email-input'];
     var_dump($email);
+    var_dump(strpos($email, '@'));
+    var_dump(strpos($email, '.'));
 
 
     ?>
@@ -25,8 +27,15 @@
                 <input type="email" class="form-control" id="exampleInputEmail1" name="email-input">
                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
             </div>
+            <!-- alert danger invalid email -->
+            <?php if (strpos($email, '@') !== false || strpos($email, '.') !== false) : ?>
+                <div class="alert alert-danger" role="alert">
+                    Insert a valid email address
+                </div>
+            <?php endif ?>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
+
     </section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
