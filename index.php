@@ -28,7 +28,7 @@
                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
             </div>
             <!-- alert danger invalid email -->
-            <?php if (strpos($email, '@') !== false || strpos($email, '.') !== false) : ?>
+            <?php if ((strpos($email, '@') !== false || strpos($email, '.') !== false) || $email === '') : ?>
                 <div class="alert alert-danger" role="alert">
                     Insert a valid email address
                 </div>
