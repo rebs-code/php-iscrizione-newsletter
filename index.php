@@ -31,7 +31,12 @@
                 <input type="email" class="form-control" id="exampleInputEmail1" name="email-input">
                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
             </div>
-            <?php isEmailValid($email) ?>
+            <?php if (isset($_POST['email-input']) && !isEmailValid($email)) : ?>
+                <div class='alert alert-danger' role='alert'>
+                    Insert a valid email address
+                </div>
+            <?php endif ?>
+
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
 
